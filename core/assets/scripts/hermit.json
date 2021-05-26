@@ -1,0 +1,26 @@
+{
+entityID : HERMIT
+state : IMMOBILE
+direction : DOWN
+animationConfig: [
+	{
+	    frameDuration: 1.0
+		animationType: IMMOBILE
+		texturePaths: [
+				sprites/characters/Player0.png
+				sprites/characters/Player1.png
+		]
+		gridPoints: [
+			{
+				x: 7
+				y: 7
+			}
+			
+			{
+				x: 7
+				y: 7
+			}
+		]
+	}
+]
+}	
