@@ -21,7 +21,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
 	private static final String TAG = PlayerPhysicsComponent.class.getSimpleName();
 
 	private Entity.State state;
-
+	private String lastMap="TOWN";
 	public PlayerPhysicsComponent() {
 		velocity.x=4;
 		velocity.y=4;
@@ -102,23 +102,26 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
 	        for( MapObject object: mapPortalLayer.getObjects()){
 	            if(object instanceof RectangleMapObject) {
 	                rectangle = ((RectangleMapObject)object).getRectangle();
-
+	                //Gdx.app.debug(TAG,object.getName());
 	                if (boundingBox.overlaps(rectangle) ){
 	                    String mapName = object.getName();
+	                    Map.PLAYER_START=object.getName();
+	                    int index=mapName.indexOf(Map.DIVIDER);
+	                    if(index>=0)
+	                    	mapName=mapName.substring(index+1);
 	                    if( mapName == null ) {
 	                        return false;
 	                    }
 
-	                    mapMgr.setClosestStartPositionFromScaledUnits(currentEntityPosition);
-	    	            Gdx.app.debug(TAG, "mapName:"+mapName);
-	                    mapMgr.loadMap(MapFactory.MapType.valueOf(mapName));
+	                    //mapMgr.setClosestStartPositionFromScaledUnits(currentEntityPosition);
+	    	            mapMgr.loadMap(MapFactory.MapType.valueOf(mapName));
 
 	                    currentEntityPosition.x = mapMgr.getPlayerStartUnitScaled().x;
 	                    currentEntityPosition.y = mapMgr.getPlayerStartUnitScaled().y;
 	                    nextEntityPosition.x = mapMgr.getPlayerStartUnitScaled().x;
 	                    nextEntityPosition.y = mapMgr.getPlayerStartUnitScaled().y;
 
-	                    Gdx.app.debug(TAG, "Portal Activated");
+	                    Gdx.app.debug(TAG, "Portal Activated:"+Map.PLAYER_START);
 	                    return true;
 	                }
 	            }

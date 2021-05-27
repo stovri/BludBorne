@@ -60,10 +60,10 @@
  </layer>
  <objectgroup id="4" name="MAP_SPAWNS_LAYER">
   <object id="1" name="HERMIT" x="177.923" y="162.552" width="12.5757" height="12.1099"/>
-  <object id="2" name="PLAYER_START" x="65.2073" y="34.0009" width="13.0415" height="12.5757"/>
+  <object id="2" name="TOP_WORLD|HERMIT" x="65.2073" y="34.0009" width="13.0415" height="12.5757"/>
  </objectgroup>
  <objectgroup id="5" name="MAP_PORTAL_LAYER">
-  <object id="3" name="TOP_WORLD" x="-3.93039" y="-10.1346" width="135.072" height="10.2469"/>
-  <object id="4" name="TOP_WORLD" x="-14.8035" y="-5.77101" width="14.9045" height="39.1244"/>
+  <object id="3" name="HERMIT|TOP_WORLD" x="-3.93039" y="-10.1346" width="135.072" height="10.2469"/>
+  <object id="4" name="HERMIT|TOP_WORLD" x="-14.8035" y="-5.77101" width="14.9045" height="39.1244"/>
  </objectgroup>
 </map>

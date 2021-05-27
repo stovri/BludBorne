@@ -16,20 +16,20 @@
 </data>
  </layer>
  <objectgroup id="5" name="MAP_PORTAL_LAYER">
-  <object id="1" name="MANSION_MARKET" x="144.121" y="112.091" width="47.8485" height="16"/>
+  <object id="1" name="MANSION_MARKET_INSIDE|MANSION_MARKET" x="144.121" y="112.091" width="47.8485" height="16"/>
  </objectgroup>
  <objectgroup id="6" name="MAP_SPAWNS_LAYER">
-  <object id="2" name="PLAYER_START" x="163.273" y="100.909" width="10.7273" height="7.36364"/>
-  <object id="4" name="ARMORSMITH_1" x="36.5" y="40" width="9" height="10.5"/>
-  <object id="5" name="WEAPONSMITH_1" x="114.5" y="40" width="11.5" height="10"/>
-  <object id="6" name="SPELLSMITH_1" x="212" y="41" width="9.5" height="9.5"/>
-  <object id="7" name="POTIONSMITH_1" x="274.5" y="39" width="11" height="12"/>
-  <object id="8" name="ARMORSMITH_2" x="67.5" y="20.75" width="9" height="10.5"/>
-  <object id="9" name="WEAPONSMITH_2" x="98.75" y="19.5" width="11.5" height="10"/>
-  <object id="10" name="SPELLSMITH_2" x="194.25" y="21.75" width="9.5" height="9.5"/>
-  <object id="11" name="POTIONSMITH_2" x="308" y="33.5" width="11" height="12"/>
-  <object id="12" name="CUSTOMER_1" x="17" y="98" width="11.5" height="11.5"/>
-  <object id="13" name="CUSTOMER_2" x="307.5" y="99.5" width="9.5" height="11.5"/>
+  <object id="2" name="MANSION_MARKET|MANSION_MARKET_INSIDE" x="163.273" y="100.909" width="10.7273" height="7.36364"/>
+  <object id="4" name="ARMORSMITH" x="36.5" y="40" width="9" height="10.5"/>
+  <object id="5" name="WEAPONSMITH" x="114.5" y="40" width="11.5" height="10"/>
+  <object id="6" name="SPELLSMITH" x="212" y="41" width="9.5" height="9.5"/>
+  <object id="7" name="POTIONSMITH" x="274.5" y="39" width="11" height="12"/>
+  <object id="8" name="ARMORSMITH" x="67.5" y="20.75" width="9" height="10.5"/>
+  <object id="9" name="WEAPONSMITH" x="98.75" y="19.5" width="11.5" height="10"/>
+  <object id="10" name="SPELLSMITH" x="194.25" y="21.75" width="9.5" height="9.5"/>
+  <object id="11" name="POTIONSMITH" x="308" y="33.5" width="11" height="12"/>
+  <object id="12" name="CUSTOMER" x="17" y="98" width="11.5" height="11.5"/>
+  <object id="13" name="CUSTOMER" x="307.5" y="99.5" width="9.5" height="11.5"/>
  </objectgroup>
  <layer id="2" name="Ground_Layer" width="21" height="8">
   <data encoding="csv">

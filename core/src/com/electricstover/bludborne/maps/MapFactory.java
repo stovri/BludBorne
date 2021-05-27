@@ -8,7 +8,7 @@ public class MapFactory {
 	public static enum MapType{
 		TOP_WORLD,
 		TOWN,
-		CASTLE_OF_DOOM, HERMIT, MANSION_MARKET
+		CASTLE_OF_DOOM, HERMIT, MANSION_MARKET, MANSION_MARKET_INSIDE
 	}
 	
 	static public Map getMap(MapType mapType) {
@@ -48,6 +48,13 @@ public class MapFactory {
 			if(map==null) {
 				map=new MansionMarketMap();
 				mapTable.put(MapType.MANSION_MARKET,map);
+			}
+			break;
+		case MANSION_MARKET_INSIDE:
+			map=mapTable.get(MapType.MANSION_MARKET_INSIDE);
+			if(map==null) {
+				map=new MansionMarketInsideMap();
+				mapTable.put(MapType.MANSION_MARKET_INSIDE,map);
 			}
 			break;
 		}

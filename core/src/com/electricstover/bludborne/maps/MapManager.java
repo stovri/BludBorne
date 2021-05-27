@@ -31,11 +31,11 @@ public class MapManager {
 
 	public void loadMap(MapType mapType) {
 		Map map = MapFactory.getMap(mapType);
-
 		if( map == null ){
 			Gdx.app.debug(TAG, "Map does not exist!  ");
 			return;
 		}
+		map.setStartPosition();
 
 
 

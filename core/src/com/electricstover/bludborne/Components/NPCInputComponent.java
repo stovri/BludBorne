@@ -61,11 +61,11 @@ public class NPCInputComponent extends InputComponent implements InputProcessor{
         }
 
         frameTime += delta;
-       	Gdx.app.debug(TAG, "FrameTime:"+frameTime);
+       	//Gdx.app.debug(TAG, "FrameTime:"+frameTime);
         
         //Change direction after so many seconds
         if( frameTime > MathUtils.random(1,5) ){
-        	Gdx.app.debug(TAG, "FamreTime:"+frameTime);
+        	//Gdx.app.debug(TAG, "FamreTime:"+frameTime);
             currentState = Entity.State.getRandomNext();
             currentDirection = Entity.Direction.getRandomNext();
             frameTime = 0.0f;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="11">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="12">
  <tileset firstgid="1" source="RPG.tsx"/>
  <tileset firstgid="1768" source="Dungeon.tsx"/>
  <tileset firstgid="2290" source="Indoors.tsx"/>
@@ -65,14 +65,15 @@
   <object id="4" name="FISHERMAN" x="114" y="242.667" width="10" height="10"/>
   <object id="5" name="GROCER" x="290.667" y="224.667" width="11.3333" height="12"/>
   <object id="6" name="BOSSMAN" x="172.667" y="294" width="10" height="12"/>
-  <object id="7" name="TOWN_FOLK_2" x="198.667" y="202" width="10" height="12"/>
-  <object id="8" name="TOWN_FOLK_1" x="254.667" y="320.667" width="10.6667" height="11.3333"/>
-  <object id="9" name="PLAYER_START" x="386" y="337.333" width="6" height="10"/>
-  <object id="10" name="PLAYER_START" x="196" y="132" width="10" height="7.33333"/>
+  <object id="7" name="TOWN_FOLK2" x="198.667" y="202" width="10" height="12"/>
+  <object id="8" name="TOWN_FOLK1" x="254.667" y="320.667" width="10.6667" height="11.3333"/>
+  <object id="9" name="TOP_WORLD|MANSION_MARKET" x="368.636" y="337.06" width="14.8182" height="14.3636"/>
+  <object id="10" name="MANSION_MARKET_INSIDE|MANSION_MARKET" x="196" y="132" width="10" height="7.33333"/>
+  <object id="11" name="TOWN_GUARD" x="356.667" y="294.667" width="7.33333" height="7.33333"/>
  </objectgroup>
  <objectgroup id="4" name="MAP_PORTAL_LAYER">
-  <object id="1" name="TOP_WORLD" x="399" y="305" width="7" height="78.5"/>
-  <object id="2" name="MANSION_MARKED_INSIDE" x="177.182" y="113" width="45.7727" height="14.5"/>
+  <object id="1" name="MANSION_MARKET|TOP_WORLD" x="400.091" y="304.909" width="7" height="78.5"/>
+  <object id="2" name="MANSION_MARKET|MANSION_MARKET_INSIDE" x="177.182" y="113" width="45.7727" height="14.5"/>
  </objectgroup>
  <layer id="3" name="Decoration_Layer" width="25" height="25">
   <data encoding="csv">

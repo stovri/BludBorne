@@ -27,8 +27,9 @@ public abstract class Map {
 	private final static String MAP_SPAWNS_LAYER="MAP_SPAWNS_LAYER";
 	private final static String MAP_PORTAL_LAYER="MAP_PORTAL_LAYER";
 
-	private final static String PLAYER_START="PLAYER_START";
+	public static String PLAYER_START="TOWN";
 	private final static String NPC_START="NPC_START";
+	public static final String DIVIDER = "|";
 
 	protected Json json;
 
@@ -54,7 +55,7 @@ public abstract class Map {
 		json = new Json();
 		mapEntities = new Array<Entity>(10);
 		currentMapType = mapType;
-		playerStart = new Vector2(0,0);
+		playerStart = new Vector2(14*16,9*16);
 		playerStartPositionRect = new Vector2(0,0);
 		closestPlayerStartPosition = new Vector2(0,0);
 		convertedUnits = new Vector2(0,0);
@@ -132,9 +133,10 @@ public abstract class Map {
 			if( objectName == null || objectName.isEmpty() ){
 				continue;
 			}
-
-			if( objectName.equalsIgnoreCase(NPC_START) ){
+			//Gdx.app.debug(TAG,objectName);
+			if( objectName.equalsIgnoreCase("TOWN_GUARD") ){
 				//Get center of rectangle
+				Gdx.app.debug(TAG,objectName);
 				float x = ((RectangleMapObject)object).getRectangle().getX();
 				float y = ((RectangleMapObject)object).getRectangle().getY();
 
@@ -180,44 +182,38 @@ public abstract class Map {
 	}
 
 	private void setClosestStartPosition(final Vector2 position){
-        Gdx.app.debug(TAG, "setClosestStartPosition INPUT: (" + position.x + "," + position.y + ") " + currentMapType.toString());
+		Gdx.app.debug(TAG, PLAYER_START+"setClosestStartPosition INPUT: (" + position.x + "," + position.y + ") " + currentMapType.toString());
 
-       //Get last known position on this map
-       playerStartPositionRect.set(0,0);
-       closestPlayerStartPosition.set(0,0);
-       float shortestDistance = 0f;
+		//Get last known position on this map
+		playerStartPositionRect.set(0,0);
+		closestPlayerStartPosition.set(0,0);
+		float shortestDistance = 0f;
 
-       //Go through all player start positions and choose closest to last known position
-       for( MapObject object: spawnsLayer.getObjects()){
-           String objectName = object.getName();
+		//Go through all player start positions and choose closest to last known position
+		for( MapObject object: spawnsLayer.getObjects()){
+			String objectName = object.getName();
 
-           if( objectName == null || objectName.isEmpty() ){
-               continue;
-           }
+			if( objectName == null || objectName.isEmpty() ){
+				continue;
+			}
+			Gdx.app.debug(TAG,object.getName()+"="+PLAYER_START);
+			if( objectName.equalsIgnoreCase(PLAYER_START) ){
+				((RectangleMapObject)object).getRectangle().getPosition(playerStartPositionRect);
+				closestPlayerStartPosition.set(playerStartPositionRect);
+				Gdx.app.debug(TAG, "closest START is: (" + closestPlayerStartPosition.x + "," + closestPlayerStartPosition.y + ") " +  currentMapType.toString());
 
-           if( objectName.equalsIgnoreCase(PLAYER_START) ){
-               ((RectangleMapObject)object).getRectangle().getPosition(playerStartPositionRect);
-               float distance = position.dst2(playerStartPositionRect);
+			}
+		}
+		playerStart =  closestPlayerStartPosition.cpy();
 
-               Gdx.app.debug(TAG, "DISTANCE: " + distance + " for " + currentMapType.toString());
-
-               if( distance < shortestDistance || shortestDistance == 0 ){
-                   closestPlayerStartPosition.set(playerStartPositionRect);
-                   shortestDistance = distance;
-                   Gdx.app.debug(TAG, "closest START is: (" + closestPlayerStartPosition.x + "," + closestPlayerStartPosition.y + ") " +  currentMapType.toString());
-               }
-           }
-       }
-       playerStart =  closestPlayerStartPosition.cpy();
-       
-   }
+	}
 	public void setClosestStartPositionFromScaledUnits(Vector2 position){
-        if( UNIT_SCALE <= 0 )
-            return;
+		if( UNIT_SCALE <= 0 )
+			return;
 
-        convertedUnits.set(position.x/UNIT_SCALE, position.y/UNIT_SCALE);
-        setClosestStartPosition(convertedUnits);
-    }
+		convertedUnits.set(position.x/UNIT_SCALE, position.y/UNIT_SCALE);
+		setClosestStartPosition(convertedUnits);
+	}
 	public TiledMap getCurrentMap() {
 		return currentMap;
 	}
@@ -225,5 +221,24 @@ public abstract class Map {
 	public MapType getCurrentMapType() {
 		// TODO Auto-generated method stub
 		return currentMapType;
+	}
+
+	public void setStartPosition() {
+		// TODO Auto-generated method stub
+		for( MapObject object: spawnsLayer.getObjects()){
+			String objectName = object.getName();
+
+			if( objectName == null || objectName.isEmpty() ){
+				continue;
+			}
+			Gdx.app.debug(TAG,object.getName()+"="+PLAYER_START);
+			if( objectName.equalsIgnoreCase(PLAYER_START) ){
+				((RectangleMapObject)object).getRectangle().getPosition(playerStartPositionRect);
+				closestPlayerStartPosition.set(playerStartPositionRect);
+				Gdx.app.debug(TAG, "closest START is: (" + closestPlayerStartPosition.x + "," + closestPlayerStartPosition.y + ") " +  currentMapType.toString());
+
+			}
+		}
+		playerStart =  closestPlayerStartPosition.cpy();
 	}
 }
